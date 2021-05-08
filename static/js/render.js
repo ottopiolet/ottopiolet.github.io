@@ -103,12 +103,12 @@ const giveUp = function(event) {
 export const loadQuestion = async function() {
     let $board = $('#board');
     let found = false;
-    /*const results = await axios({
+    const results = await axios({
         method: 'get',
         url: 'https://newsapi.org/v2/everything?apiKey=f77e7d69379d41e08f94964c58f539db&sources=bbc-news&pageSize=100',
-    });*/
+    });
     let question;
-    let titles = result2/*s.data*/.articles.map(item => item.title);    
+    let titles = results.data.articles.map(item => item.title);    
     while(!found) {
         let rand = Math.floor(Math.random()*keywords.length);
         keyword = keywords[rand];
