@@ -22,7 +22,7 @@ const checkAnswer = function(event) {
     else {
         $('#message').replaceWith(`<div id='message'></div>`);
         $('#message').append(`<h1>Try Again</h1>`);
-        $('#answer').replaceWith(`<input class='answer' id='answer'></input>`);
+        $('#answer').replaceWith(`<input id='answer' list='keywords' name='keywords'></input>`);
         lives--;
         if(lives==0){
             $('#message').replaceWith(`<div id='message'></div>`);
