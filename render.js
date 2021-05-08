@@ -32,6 +32,7 @@ const checkAnswer = function(event) {
             $(`#life${actualLives}`).remove();
             actualLives--;
             if(actualLives==0) {                
+                $('#message').append('<p>Sorry, you lost. </p>');
                 $('#message').append('<p>Please wait while the song loads...</p>');
                 gameOver();
             }
