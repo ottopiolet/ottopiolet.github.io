@@ -106,6 +106,9 @@ export const loadQuestion = async function() {
     const results = await axios({
         method: 'get',
         url: 'https://newsapi.org/v2/everything?apiKey=f77e7d69379d41e08f94964c58f539db&sources=bbc-news&pageSize=100',
+        header: {
+            "Access-Control-Allow-Origin":"*"
+        }
     });
     let question;
     let titles = results.data.articles.map(item => item.title);    
