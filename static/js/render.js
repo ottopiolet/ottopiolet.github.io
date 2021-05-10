@@ -105,9 +105,14 @@ export const loadQuestion = async function() {
     let found = false;
     const results = await axios({
         method: 'get',
-        url: 'https://newsapi.org/v2/everything?apiKey=f77e7d69379d41e08f94964c58f539db&sources=bbc-news&pageSize=100',
+        url: 'https://newsapi.org/v2/everything',
         header: {
             "Access-Control-Allow-Origin":"*"
+        },
+        params: {
+            "apiKey": "f77e7d69379d41e08f94964c58f539db",
+            "pageSize":100,
+            "sources":"bbc-news"
         }
     });
     let question;
