@@ -104,19 +104,17 @@ export const loadQuestion = async function() {
     let $board = $('#board');
     let found = false;
     const results = await axios({
-        method: 'get',
-        url: 'https://newsapi.org/v2/everything',
-        header: {
-            "Access-Control-Allow-Origin":"*"
-        },
-        params: {
-            "apiKey": "f77e7d69379d41e08f94964c58f539db",
-            "pageSize":100,
-            "sources":"bbc-news"
+        method: 'GET',
+        url: 'https://bing-news-search1.p.rapidapi.com/news',
+        params: {textFormat: 'Raw', safeSearch: 'Off'},
+        headers: {
+            'x-bingapis-sdk': 'true',
+            'x-rapidapi-key': '934eec1660mshcf27d9f91581b8ap1a03a7jsn83b5fc9536a8',
+            'x-rapidapi-host': 'bing-news-search1.p.rapidapi.com'
         }
-    });
+      });
     let question;
-    let titles = results.data.articles.map(item => item.title);    
+    let titles = results.data.value.map(item => item.name);    
     while(!found) {
         let rand = Math.floor(Math.random()*keywords.length);
         keyword = keywords[rand];
@@ -135,7 +133,7 @@ export const loadQuestion = async function() {
     $board.append(`<div class='question'>
                        ${question}
                    </div>`);
-}
+    }
 
 export const loadBoard = function() { 
     loadQuestion();
